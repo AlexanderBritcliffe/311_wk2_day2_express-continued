@@ -1,6 +1,22 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const contactsRouter = require("./routes/contacts");
+const vehiclesRouter = require("./routes/vehicles");
+const commentsRouter = require("./routes/comments");
+const productsRouter = require("./routes/products");
 const app = express();
+app.use(express.static('public'))
+app.use(bodyParser.json());
+
+
+
+app.use(contactsRouter)
+app.use(vehiclesRouter) 
+app.use(commentsRouter)
+app.use(productsRouter)
+
+
+
 
 const port = process.env.PORT || 4001;
 
